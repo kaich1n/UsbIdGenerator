@@ -3,6 +3,7 @@ all: usb_ids.h
 	./test 0x2c7c
 
 usb_ids.h:
+	@pip install --user -r requirements.txt > /dev/null
 	@python3 UsbIdGenerator.py
 
 clean:
