@@ -1,9 +1,14 @@
-all:
-	python3 UsbIdGenerator.py
-	gcc -Wall test.c -o test
+all: usb_ids.h
+	@gcc -Wall test.c -o test
 	./test 0x2c7c
 
-clean:
-	@rm -rf test *.o
+usb_ids.h:
+	@python3 UsbIdGenerator.py
 
-.PHONY: all clean
+clean:
+	@rm -rf test *.o usb_ids.h
+
+distclean:
+	@rm -rf test *.o usb.ids  usb_ids.h
+
+.PHONY: all clean distclean
