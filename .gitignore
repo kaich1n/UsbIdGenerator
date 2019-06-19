@@ -1,0 +1,4 @@
+usb.ids
+usb_ids.h
+*.o
+test
